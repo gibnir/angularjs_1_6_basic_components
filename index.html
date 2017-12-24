@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+    <head>
+		<title>angularjs 1.6 example</title>
+		
+		<link href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+			  rel="stylesheet" type="text/css" />
+
+
+		<link  href="style/css.css"rel="stylesheet" type="text/css" />
+		
+		</head>
+	<body  class="list-group" ng-controller="appController as store">
+		<header>
+			<h1 class="text-center">Star trek tv series</h1>
+			<h2 class="text-center">– an Angularjs 1.6 example –</h2>
+		</header>
+
+		<div class="list-group-item" ng-repeat="product in store.products | limitTo:5">
+			<div ng-hide="product.soldOut">
+				<h3>
+					{{product.name}}
+					<em class="pull-right">{{product.price | currency}}</em>
+				</h3>
+
+				<!-- Image Gallery  -->
+		      	<component-gallery></component-gallery>
+		      	
+		      	<!-- product-panel  -->
+				<component-panel></component-panel>
+
+				<button ng-show="product.canPurchase">Add to cart</button>
+			</div>
+		</div>
+ 
+		<script src="node_modules/angular/angular.min.js" type="text/javascript"></script>	
+		<script src="app/app.js" type="text/javascript"></script>	
+		<script src="app/services/services.js" type="text/javascript"></script>	
+		<script src="app/controllers/controllers.js" type="text/javascript"></script>	
+		<script src="app/directives/directives.js" type="text/javascript"></script>	
+
+	</body>
+</html>

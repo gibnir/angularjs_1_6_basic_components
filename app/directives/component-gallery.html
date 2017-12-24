@@ -1,0 +1,11 @@
+<!-- component Gallery  -->
+<div class='gallery' ng-show="product.images.length">
+
+	<img ng-src="{{product.images[0]}}" />
+	<ul class="list-inline thumbs">
+		<li class="thumbnail" ng-repeat="image in product.images">
+			<img ng-src="{{image}}" />
+		</li>
+	</ul>
+</div>
+<!-- length == 0 then false -->

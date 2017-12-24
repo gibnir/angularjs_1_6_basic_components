@@ -1,0 +1,32 @@
+<!-- component panel -->
+<section class="tab">
+
+	<ul class="nav nav-pills">
+		<li ng-class="{active: panel.isSelected(1)}">
+			<a href ng-click="panel.selectedTab(1)">description</a>
+		</li>
+		<li ng-class="{active: panel.isSelected(2)}">
+			<a href ng-click="panel.selectedTab(2)">Specs</a>
+		</li>
+		<li ng-class="{active: panel.isSelected(3)}">
+			<a href ng-click="panel.selectedTab(3)">Reviews</a>
+		</li>
+	</ul>
+	{{panel.tab}}
+
+	<!-- product-description ng-include -->
+	<!--
+	<div class="panel"
+	ng-show="tab.isSet(1)"
+	ng-include="'app/directives/product-description.html'"></div>
+	-->
+	<component-description ng-show="panel.isSelected(1)"></component-description>	
+
+	<!-- product-specs directive attribute  -->
+	<!-- <product-specs ng-show="panel.isSelected(2)"></product-specs> -->
+	<div class="panel" component-specs ng-show="panel.isSelected(2)"></div>
+
+	<!-- product-reviews directive element -->
+	<component-reviews ng-show="panel.isSelected(3)"></component-reviews>
+	
+</section>
